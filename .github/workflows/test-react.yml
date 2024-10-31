@@ -1,6 +1,13 @@
 name: Test Project
-on: push
+on: ["push", "workflow_dispatch"]
 jobs:
+  show-time:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Running time
+        run: |
+          dt=$(date '+%d/%m/%Y %H:%M:%S');
+          echo "$dt"
   test:
     runs-on: ubuntu-latest
     steps:
@@ -18,7 +25,7 @@ jobs:
         run: npm test
   deploy:
     # set needs for working after another job
-    needs: test
+    needs: ["show-time", "test"]
     runs-on: ubuntu-latest
     steps:
       - name: Get code
