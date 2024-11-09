@@ -1,0 +1,23 @@
+name: Pull Request Trigger
+on:
+  pull_request:
+    types:
+      - opened
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+      - "dev-*" #ex. dev-new
+      - "feat/**" #ex. feat/new
+    paths-ignore:
+      - ".github/workflows/*"
+jobs:
+  on-pull-request:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print start
+        run: |
+          echo "Hellow"
+          echo "Here is a pull request"
+      - name: Print end
+        run: echo "Goodbye"
