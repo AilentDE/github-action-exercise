@@ -4,13 +4,13 @@ on:
     types:
       - opened
   workflow_dispatch:
-  push:
-    branches:
-      - master
-      - "dev-*" #ex. dev-new
-      - "feat/**" #ex. feat/new
-    paths-ignore:
-      - ".github/workflows/*"
+  # push:
+  #   branches:
+  #     - master
+  #     - "dev-*" #ex. dev-new
+  #     - "feat/**" #ex. feat/new
+  #   paths-ignore:
+  #     - ".github/workflows/*"
 jobs:
   on-pull-request:
     runs-on: ubuntu-latest
