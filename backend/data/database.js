@@ -20,6 +20,7 @@ try {
   console.log("Connection failed.");
   await client.close();
   console.log("Connection closed.");
+  process.exit(1);
 }
 
 const database = client.db(dbName);
