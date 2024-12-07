@@ -13,12 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: node:20
-    env:
-      MONGODB_CONNECTION_PROTOCOL: mongodb
-      MONGODB_CLUSTER_ADDRESS: mongodb
-      MONGODB_USERNAME: root
-      MONGODB_PASSWORD: password
-      PORT: 8080
     services:
       mongodb:
         image: mongo
@@ -31,6 +25,12 @@ jobs:
           --health-timeout 5s
           --health-retries 5
           --name mongo_container
+    env:
+      MONGODB_CONNECTION_PROTOCOL: mongodb
+      MONGODB_CLUSTER_ADDRESS: mongodb
+      MONGODB_USERNAME: root
+      MONGODB_PASSWORD: password
+      PORT: 8080
     steps:
       - name: Get Code
         uses: actions/checkout@v4
